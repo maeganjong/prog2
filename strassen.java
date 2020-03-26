@@ -42,15 +42,25 @@ public static int[][] strassen(int mat1[][], int mat2[][]){
 
   // how to divide up matrix accordingly
 
-  int[][] a = new int[N / 2][N / 2];
-  int[][] b = new int[N / 2][N / 2];
-  int[][] c = new int[N / 2][N / 2];
-  int[][] d = new int[N / 2][N / 2];
+  int[][] a = new int[N/2][N/2];
+  int[][] b = new int[N/2][N/2];
+  int[][] c = new int[N/2][N/2];
+  int[][] d = new int[N/2][N/2];
 
-  int[][] e = new int[N / 2][N / 2];
-  int[][] f = new int[N / 2][N / 2];
-  int[][] g = new int[N / 2][N / 2];
-  int[][] h = new int[N / 2][N / 2];
+  splitMatrix(mat1[][], a[][], 0, 0);
+  splitMatrix(mat1[][], b[][], N/2, N);
+  splitMatrix(mat1[][], c[][], );
+  splitMatrix(mat1[][], d[][]);
+
+  int[][] e = new int[N/2][N/2];
+  int[][] f = new int[N/2][N/2];
+  int[][] g = new int[N/2][N/2];
+  int[][] h = new int[N/2][N/2];
+
+  splitMatrix(mat1[][], e[][], 0, 0);
+  splitMatrix(mat1[][], f[][]);
+  splitMatrix(mat1[][], g[][]);
+  splitMatrix(mat1[][], h[][]);
 
   int[][] p1 = strassen(addMatrix(a,d), addMatrix(e,d));
   int[][] p2 = strassen(addMatrix(c,d),e);
@@ -64,10 +74,13 @@ public static int[][] strassen(int mat1[][], int mat2[][]){
 }
 
 public static void splitMatrix(int sourcemat[][], int outputmat[][], int a, int b){
-  for (int i = 0; i < (b-a); i++){
-    for (int j = 0; j < (b-a); j++){
-        outputmat[i]  
+  int N = outputmat.length;
+  for (int i = 0; i < N; i++){
+    for (int j = 0; j < N; j++){
+        outputmat[i][j] = sourcemat[a][b];
+        b++;
     }
+        a++;
   }
 }
 
