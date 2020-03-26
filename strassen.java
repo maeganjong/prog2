@@ -48,9 +48,9 @@ public static int[][] strassen(int mat1[][], int mat2[][]){
   int[][] d = new int[N/2][N/2];
 
   splitMatrix(mat1[][], a[][], 0, 0);
-  splitMatrix(mat1[][], b[][], N/2, N);
-  splitMatrix(mat1[][], c[][], );
-  splitMatrix(mat1[][], d[][]);
+  splitMatrix(mat1[][], b[][], 0, N/2);
+  splitMatrix(mat1[][], c[][], N/2, 0);
+  splitMatrix(mat1[][], d[][], N/2, N/2);
 
   int[][] e = new int[N/2][N/2];
   int[][] f = new int[N/2][N/2];
@@ -58,9 +58,9 @@ public static int[][] strassen(int mat1[][], int mat2[][]){
   int[][] h = new int[N/2][N/2];
 
   splitMatrix(mat1[][], e[][], 0, 0);
-  splitMatrix(mat1[][], f[][]);
-  splitMatrix(mat1[][], g[][]);
-  splitMatrix(mat1[][], h[][]);
+  splitMatrix(mat1[][], f[][], 0, N/2);
+  splitMatrix(mat1[][], g[][], N/2, 0);
+  splitMatrix(mat1[][], h[][], N/2, N/2);
 
   int[][] p1 = strassen(addMatrix(a,d), addMatrix(e,d));
   int[][] p2 = strassen(addMatrix(c,d),e);
